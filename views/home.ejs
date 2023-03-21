@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <h1>Home</h1>
+
+    <%result.map(x=>{%>
+
+    <!-- converting data into base 64 -->
+    <img
+      class="image"
+      src="data:image/<%=x.contentType%>;base64,
+					<%=x.data.toString('base64')%>"
+      alt=""
+    />
+
+    <%})%>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <!-- <input type="text" name="name" /> -->
+      <input type="file" id="myFile" name="avatar" multiple />
+      <!-- <input type="file" id="myFile" name="filename" multiple /> -->
+      <input type="submit" />
+    </form>
+  </body>
+</html>
